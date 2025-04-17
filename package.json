@@ -1,0 +1,32 @@
+{
+  "name": "whistle-docs-server",
+  "version": "0.1.0",
+  "description": "Whistle文档MCP服务器，提供Whistle文档的搜索和访问功能",
+  "type": "module",
+  "bin": {
+    "whistle-docs-server": "./build/index.js",
+    "whistle-docs-setup": "./build/setup.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755') && require('fs').chmodSync('build/setup.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "keywords": ["whistle", "docs", "mcp", "claude", "ai"],
+  "author": "Whistle Docs Team",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "axios": "^1.8.4",
+    "cheerio": "^1.0.0",
+    "web-streams-polyfill": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
